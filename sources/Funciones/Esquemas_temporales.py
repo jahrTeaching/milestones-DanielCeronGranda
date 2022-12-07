@@ -29,3 +29,10 @@ def RK4(U0, deltat, t, F0, F):
     U = U0+ deltat*(k1+2*k2+2*k3+k4)/6 #Método RK4 
     return U
 
+#Función para integrar un paso de Leap Frog
+#Cuidado al usarla, aquí hay que meter dos condiciones de U en vez de
+#una condición de U y otra de F
+def Leap_Frog(U0, deltat, t, U1, F):
+    F1 = F(U1, t)
+    U2 = U0 + 2*deltat*F1
+    return U2
