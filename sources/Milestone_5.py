@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt #Importación de gráficas
 
 #Función del problema de los N cuerpos
 def F_NBody(U,t): 
-  Nb = 4
+  Nb = 5
   Nc = 2  
     
   Us = reshape( U, (Nb, Nc, 2) )      
@@ -48,13 +48,13 @@ def Int_N_Body(Nb, Nc, N, t0, tf, U0, Scheme):
   return U
 
 #Simulación de ejemplo del problema de los N cuerpos
-Nb = 4 #Define el número de cuerpos
+Nb = 5 #Define el número de cuerpos
 Nc = 2 #Define el número de coordenadas
 t0 = 0
-tf = 3 #Tiempo final de simulación
+tf = 5 #Tiempo final de simulación
 
 #Condiciones iniciales (se pueden variar)
 U0 = array(zeros([Nc*2*Nb]))
-U0 = array([2,0,2,0, 1,-1,3,1, 1,-1,0,-2, 0,-1,0,1]) #Para cada cuerpo el orden es (x0, vx0, y0, vy0)
+U0 = array([2,0,2,0, 1,-1,3,1, 1,-1,0,-2, 0,-1,0,1, -2,1,-3,1]) #Para cada cuerpo el orden es (x0, vx0, y0, vy0)
 
 matrizU = Int_N_Body(Nb, Nc, 100*tf, t0, tf, U0, RK4)
